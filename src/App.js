@@ -1,11 +1,16 @@
 import React from 'react'
-import ProductsList from './components/ProductsList'
+import Header from './components/Header'
+import AddTask from './components/AddTask'
+import ShowTask from './components/ShowTask'
 
 const App = () => {
   return (
-    <div className=' px-4'>
-      <h1 className=' text-4xl text-center font-bold'>Products List</h1>
-      <ProductsList />
+    <div className='bg-slate-200 min-h-screen'>
+      <div className='max-w-3xl mx-auto'>
+        <Header />
+        <AddTask />
+        <ShowTask />
+      </div>
     </div>
   )
 }
