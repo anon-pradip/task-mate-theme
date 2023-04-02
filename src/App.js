@@ -6,7 +6,6 @@ import ShowTask from './components/ShowTask'
 const App = () => {
   const [taskList, setTaskList] = useState([])
   const [task, setTask] = useState({});
-  console.log(task)
   return (
     <div className='bg-slate-200 min-h-screen'>
       <div className='max-w-3xl mx-auto'>

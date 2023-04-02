@@ -6,8 +6,8 @@ const AddTask = ({ taskList, setTaskList, setTask, task }) => {
     e.preventDefault();
     if (task.id) {
       const date = new Date();
-      const updatedTask = taskList.map((todo) => (todo.id === task.id ? { id: task.id, name: task.name, time: `${date.toLocaleTimeString()} ${date.toLocaleDateString()}` } : todo))
-      setTaskList(updatedTask)
+      const updatedTaskList = taskList.map((todo) => (todo.id === task.id ? { id: task.id, name: task.name, time: `${date.toLocaleTimeString()} ${date.toLocaleDateString()}` } : todo))
+      setTaskList(updatedTaskList)
       setTask({})
     } else {
       const date = new Date();
