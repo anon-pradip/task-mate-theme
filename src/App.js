@@ -6,11 +6,15 @@ import ShowTask from './components/ShowTask'
 const App = () => {
   const [taskList, setTaskList] = useState(JSON.parse(localStorage.getItem("tasklist")) || [])
   const [task, setTask] = useState({});
-  const [theme, setTheme] = useState('light')
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
 
   useEffect(() => {
     localStorage.setItem("tasklist", JSON.stringify(taskList))
   }, [taskList])
+
+  useEffect(() => {
+    localStorage.setItem('theme', theme);
+  }, [theme]);
 
   return (
     <div className={`bg-slate-200 min-h-screen ${theme === "dark" && "bg-slate-900 text-gray-100"}`}>
