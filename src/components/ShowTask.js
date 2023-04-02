@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ShowTask = ({ taskList, setTaskList, task, setTask }) => {
+const ShowTask = ({ taskList, setTaskList, task, setTask, theme, setTheme }) => {
 
   const handleEdit = (id) => {
     const selectedTask = taskList.find(todo => todo.id === id)
@@ -13,7 +13,7 @@ const ShowTask = ({ taskList, setTaskList, task, setTask }) => {
     setTaskList(updatedTaskList)
   }
   return (
-    <div className=' mt-4 bg-white px-2 py-2'>
+    <div className={`bg-slate-200 ${theme === "dark" && "bg-slate-900 text-gray-100"}`}>
       <div className=' flex justify-between items-center'>
         <div className=' flex justify-center items-center space-x-1'>
           <p className=' font-semibold'>Todo</p>

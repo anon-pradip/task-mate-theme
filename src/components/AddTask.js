@@ -22,7 +22,7 @@ const AddTask = ({ taskList, setTaskList, setTask, task }) => {
   }
 
   return (
-    <div className='max-w-xs mx-auto'>
+    <div className='max-w-xs mx-auto dark:text-black'>
       <form className='bg-white mt-7 px-1 py-1 rounded-sm flex justify-between items-center' onSubmit={handleSubmit}>
         <input type="text" name='task' placeholder='add task' className='border px-1 py-1 w-full mr-1 rounded-sm ring-slate-300 focus:outline-none' value={task.name || ""} onChange={(e) => setTask({ ...task, name: e.target.value })} />
         <button className=' bg-green-600 text-white px-3 py-1 rounded-sm' type='submit'>{task.id ? "Update" : "Add"}</button>
