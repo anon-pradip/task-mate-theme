@@ -1,7 +1,16 @@
 import React from 'react'
 
-const ShowTask = ({ taskList, setTaskList }) => {
-  console.log(taskList)
+const ShowTask = ({ taskList, setTaskList, task, setTask }) => {
+
+  const handleEdit = (id) => {
+    const selectedTask = taskList.find(todo => todo.id === id)
+    console.log(selectedTask)
+  }
+
+  const handleDelete = (id) => {
+    const updatedTaskList = taskList.filter(todo => todo.id !== id)
+    setTaskList(updatedTaskList)
+  }
   return (
     <div className=' mt-4 bg-white px-2 py-2'>
       <div className=' flex justify-between items-center'>
@@ -18,19 +27,18 @@ const ShowTask = ({ taskList, setTaskList }) => {
       {/* TASKS */}
       <div className='px-2 mt-4 flex flex-wrap gap-4 justify-center items-center '>
         {taskList.length < 1 && <p className='text-2xl my-4 font-bold'>Empty List!</p>}
-        {taskList.map((task, index) => (
+        {taskList.map((todo) => (
           //  INDIVIDUAL TASK 
-
-          <div key={index} className='flex justify-between items-start px-1 border border-l-2 border-l-blue-400 rounded-sm max-w-xs'>
+          <div key={todo.id} className='flex justify-between items-start px-1 border border-l-2 border-l-blue-400 rounded-sm max-w-xs'>
             {/* LEFT PART */}
             <div className=' flex flex-col'>
-              <p className=' font-semibold break-all'>{task.name}</p>
-              <p className=' text-slate-500 text-sm'>{task.time}</p>
+              <p className=' font-semibold break-all'>{todo.name}</p>
+              <p className=' text-slate-500 text-sm'>{todo.time}</p>
             </div>
             {/* RIGHT SIDE */}
             <div className=' flex space-x-1'>
-              <button>✍🏻</button>
-              <button>🗑️</button>
+              <button onClick={() => handleEdit(todo.id)}>✍🏻</button>
+              <button onClick={() => handleDelete(todo.id)}>🗑️</button>
             </div>
           </div>
         ))}
